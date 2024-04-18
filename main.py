@@ -1,8 +1,11 @@
 import pandas as pd
 
-a = [1, 7, 2]
+data = {
+  "calories": [420, 380, 390],
+  "duration": [50, 40, 45]
+}
 
-myvar = pd.Series(a, index = ["x", "y", "z"])
+#load data into a DataFrame object:
+df = pd.DataFrame(data)
 
-print(myvar)
-print(myvar["y"])
+print(df) 
