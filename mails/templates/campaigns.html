@@ -1,8 +1,13 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "master.html" %}
+
+{% block title %}
+  List of Mail Campaigns
+{% endblock %}
+
+{% block content %}
 
 <h1>Members</h1>
+<p><a href="/">HOME</a></p>
   
 <ol>
   {% for x in campaigns %}
@@ -10,5 +15,4 @@
   {% endfor %}
 </ol>
 
-</body>
-</html>
+{% endblock %}

@@ -1,3 +1,6 @@
+MailCampaign123
+
+
 campaign1 = Campaign(name='Lody Ekipy', type='Promocja', date='2022-01-05', sent= 1321, seen=541, replied= 6)
 campaign2 = Campaign(name='Wakacyjna Promocja', type='Newsletter', date='2022-04-15', sent=1800, seen=650, replied=12)
 campaign3 = Campaign(name='Nowości Wiosenne', type='Ankieta', date='2022-05-02', sent=1500, seen=720, replied=8)
@@ -8,3 +11,5 @@ campaign6 = Campaign(name='Zaproszenie na Event', type='Rekomendacja', date='202
 list = [campaign1, campaign2, campaign3, campaign4, campaign5, campaign6]
 for x in list:
    x.save()
+
+

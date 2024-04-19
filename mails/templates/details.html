@@ -1,7 +1,11 @@
-<!DOCTYPE html>
-<html>
+{% extends "master.html" %}
 
-<body>
+{% block title %}
+  Details about {{ mycampaign.name }}
+{% endblock %}
+
+
+{% block content %}
 
 <h1>{{ mycampaign.name }}</h1>
 
@@ -10,7 +14,6 @@
   
 
 
-<p>Back to <a href="/">Members</a></p>
+<p>Back to <a href="/campaigns">Members</a></p>
 
-</body>
-</html>
+{% endblock %}

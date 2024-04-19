@@ -8,3 +8,7 @@ class Campaign(models.Model):
     sent = models.IntegerField()
     seen = models.IntegerField()
     replied = models.IntegerField()
+    
+    def __str__(self):
+        return self.name
+    
