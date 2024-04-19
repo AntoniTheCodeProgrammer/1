@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Members</h1>
+  
+<ol>
+  {% for x in campaigns %}
+    <li>"{{ x.name }}" - {{ x.type }} <a href="details/{{x.id}}">Details</a> </li>
+  {% endfor %}
+</ol>
+
+</body>
+</html>

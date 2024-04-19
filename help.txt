@@ -1,8 +1,10 @@
-mail1 = Mail(author='Tobias Refsnes', text='post1')
-mail2 = Mail(author='Linus Refsnes', text='post2')
-mail3 = Mail(author='Lene Refsnes', text='post3')
-mail4 = Mail(author='Stale Refsnes', text='post4')
-mail5 = Mail(author='Jane Doe', text='post5')
-mails_list = [mail1, mail2, mail3, mail4, mail5]
-for x in mails_list:
+campaign1 = Campaign(name='Lody Ekipy', type='Promocja', date='2022-01-05', sent= 1321, seen=541, replied= 6)
+campaign2 = Campaign(name='Wakacyjna Promocja', type='Newsletter', date='2022-04-15', sent=1800, seen=650, replied=12)
+campaign3 = Campaign(name='Nowości Wiosenne', type='Ankieta', date='2022-05-02', sent=1500, seen=720, replied=8)
+campaign4 = Campaign(name='Letnia Wyprzedaż', type='Promocja', date='2022-05-20', sent=1200, seen=550, replied=15)
+campaign5 = Campaign(name='Kupony Rabatowe', type='Powiadomienie', date='2022-04-28', sent=1600, seen=680, replied=10)
+campaign6 = Campaign(name='Zaproszenie na Event', type='Rekomendacja', date='2022-06-10', sent=1400, seen=600, replied=7)
+
+list = [campaign1, campaign2, campaign3, campaign4, campaign5, campaign6]
+for x in list:
    x.save()
