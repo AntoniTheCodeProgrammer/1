@@ -1,6 +1,10 @@
 from django.db import models
 
 # Create your models here.
-class Mail(models.Model):
-    author = models.CharField(max_length=255)
-    text = models.CharField(max_length=2550)
+class Campaign(models.Model):
+    name = models.CharField(max_length=255)
+    type = models.CharField(max_length=255)
+    date = models.DateField()
+    sent = models.IntegerField()
+    seen = models.IntegerField()
+    replied = models.IntegerField()
