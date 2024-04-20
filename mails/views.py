@@ -14,13 +14,22 @@ def mails(request):
     return HttpResponse(template.render(context, request))
 
 def details(request, id):
-  mycampaign = Campaign.objects.get(id=id)
-  template = loader.get_template('details.html')
-  context = {
-    'mycampaign': mycampaign,
-  }
-  return HttpResponse(template.render(context, request))
+    mycampaign = Campaign.objects.get(id=id)
+    template = loader.get_template('details.html')
+    context = {
+        'mycampaign': mycampaign,
+    }
+    return HttpResponse(template.render(context, request))
 
 def main(request):
-  template = loader.get_template('main.html')
-  return HttpResponse(template.render())
+    campaigns = Campaign.objects.all().values()
+    successprocent = []
+    # for campaign in campaigns:
+    #     successprocent.append((campaign[4]/campaign[6])*100)
+
+    # bestcampaign = successprocent.index(max(successprocent))
+    # context = {
+    #     'mycampaign': campaigns[bestcampaign],
+    # }
+    template = loader.get_template('main.html')
+    return HttpResponse(template.render())
