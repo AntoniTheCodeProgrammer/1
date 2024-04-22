@@ -5,5 +5,6 @@ from .models import Campaign
 
 class CampaignAdmin(admin.ModelAdmin):
   list_display = ("name", "type", "date",)
-  
+  # prepopulated_fields = {"slug": ("name", "id")}
+
 admin.site.register(Campaign, CampaignAdmin)

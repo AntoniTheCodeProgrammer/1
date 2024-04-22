@@ -13,8 +13,8 @@ def mails(request):
     }
     return HttpResponse(template.render(context, request))
 
-def details(request, id):
-    mycampaign = Campaign.objects.get(id=id)
+def details(request, slug):
+    mycampaign = Campaign.objects.get(slug=slug)
     template = loader.get_template('details.html')
     context = {
         'mycampaign': mycampaign,

@@ -11,7 +11,7 @@
   
   <ul>
     {% for x in campaigns %}
-      <li onclick="window.location = 'details/{{ x.id }}'">{{ x.name }}</li>
+      <li onclick="window.location = 'details/{{ x.slug }}'">{{ x.name }}</li>
     {% endfor %}
   </ul>
 
