@@ -1,15 +1,19 @@
 {% extends "master.html" %}
 
+
 {% block title %}
   Mail Campaigns
 {% endblock %}
 
 
 {% block content %}
+<div class="main">
   <h1>Mail Campaigns</h1>
 
   {% comment %} <h3>Members</h3> {% endcomment %}
-  <p>  </p>
+  <p>Najlepsza kampania "{{ mycampaign.name }}" z {{ mycampaign.replied }} odpowiedziami.</p>
   <p>Check out all our <a href="campaigns/">campaigns</a></p>
+
+</div>
   
 {% endblock %}

@@ -5,7 +5,7 @@ from .models import Campaign
 
 
 def mails(request):
-    campaigns = Campaign.objects.all().values()
+    campaigns = Campaign.objects.all()
     template1 = loader.get_template('first.html')
     template = loader.get_template('campaigns.html')
     context = {
@@ -22,14 +22,14 @@ def details(request, id):
     return HttpResponse(template.render(context, request))
 
 def main(request):
-    campaigns = Campaign.objects.all().values()
+    campaign = Campaign.objects.all().order_by('-replied').values()[0]
     successprocent = []
     # for campaign in campaigns:
     #     successprocent.append((campaign[4]/campaign[6])*100)
 
     # bestcampaign = successprocent.index(max(successprocent))
-    # context = {
-    #     'mycampaign': campaigns[bestcampaign],
-    # }
+    context = {
+        'mycampaign': campaign,
+    }
     template = loader.get_template('main.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render(context, request))

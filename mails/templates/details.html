@@ -7,13 +7,14 @@
 
 {% block content %}
 
-<h1>{{ mycampaign.name }}</h1>
+<div class="mycard">
+  <h1>{{ mycampaign.name }}</h1>
 
-<p>Typ: {{ mycampaign.type }}</p>
-<p>Data: {{ mycampaign.date }} </p>
-  
+  <p>Typ: {{ mycampaign.type }}</p>
+  <p>Data: {{ mycampaign.date }} </p>
+</div>
 
 
-<p>Back to <a href="/campaigns">Members</a></p>
+<p>Back to <a href="/campaigns">Campaigns</a></p>
 
 {% endblock %}

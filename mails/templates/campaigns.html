@@ -6,26 +6,15 @@
 
 {% block content %}
 
-<h1>Members</h1>
-<p><a href="/">HOME</a></p>
+<div class="mycard">
+  <h1>Campaigns</h1>
   
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Nazwa</th>
-        <th>Typ</th>
-        <th>Data</th>
-        <th>link</th>
-    </tr>
-  {% for x in campaigns %}
-    <tr>
-        <td> {{ x.id }}. </td>
-        <td> "{{ x.name }}" </td> 
-        <td> {{ x.type }} </td>
-        <td> {{ x.date }} </td>
-        <td><a href="details/{{x.id}}">Details</a></td>
-    </tr>
-  {% endfor %}
-</table>
+  <ul>
+    {% for x in campaigns %}
+      <li onclick="window.location = 'details/{{ x.id }}'">{{ x.name }}</li>
+    {% endfor %}
+  </ul>
+
+</div>
 
 {% endblock %}
