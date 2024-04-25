@@ -6,11 +6,12 @@
 {% endblock %} {% endcomment %}
 
 
-{% block content %}
+{% comment %} {% block content %} {% endcomment %}
 <form method="POST">
     {% csrf_token %}
     {{form}}
     <button type="submit">submit</button>
 </form>
+<a href="/signup">Rejestracja</a>
   
 {% comment %} {% endblock %} {% endcomment %}

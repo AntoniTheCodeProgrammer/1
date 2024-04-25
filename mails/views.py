@@ -56,16 +56,6 @@ def signup(request):
         
     return render(request, 'signup.html', {'form': form})
 
-# def login(request):
-#     if request.method == 'POST':
-#         form = AuthenticationForm(data=request.POST)
-#         if form.is_valid():
-#             # log the user in
-#             return redirect('main')
-#     else:
-#         form = AuthenticationForm()
-#     return render(request, 'login.html', {'form': form})
-
 
 def login(request):
     if request.method == 'POST':
@@ -74,9 +64,12 @@ def login(request):
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
+            print(form.errors)
             if user is not None:
+                
                 login(request, user)
-                return redirect('main')
+                return redirect('')
     else:
         form = AuthenticationForm()
+
     return render(request, 'login.html', {'form': form})
