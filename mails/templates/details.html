@@ -12,6 +12,21 @@
 
   <p>Typ: {{ mycampaign.type }}</p>
   <p>Data: {{ mycampaign.date }} </p>
+  <table border="1" class="styled-table">
+    <tr>
+        <th>Wysłane</th>
+        <th>Wyświetlone</th>
+        <th>Odpowiedziane</th>
+        {% comment %} <t>Procent odpowiedzi</th> {% endcomment %}
+    </tr>
+    <tr class="active-row">
+        <td>{{ mycampaign.sent }}</td>
+        <td>{{ mycampaign.seen }}</td>
+        <td>{{ mycampaign.replied }}</td>
+        {% comment %} <td>{{ mycampaign.replied / mycampaign.sent *100 }}%</td> {% endcomment %}
+    </tr>
+  </table>
+   
 </div>
 
 
