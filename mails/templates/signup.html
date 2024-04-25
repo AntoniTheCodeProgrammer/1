@@ -1,4 +1,4 @@
-{% extends "master.html" %}
+{% comment %} {% extends "master.html" %}
 
 
 {% block title %}
@@ -6,11 +6,11 @@
 {% endblock %}
 
 
-{% block content %}
+{% block content %} {% endcomment %}
 <form method="POST">
     {% csrf_token %}
     {{form}}
     <button type="submit">submit</button>
 </form>
   
-{% endblock %}
+{% comment %} {% endblock %} {% endcomment %}

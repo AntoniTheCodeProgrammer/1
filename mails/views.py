@@ -3,7 +3,12 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Campaign
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
+from django.shortcuts import redirect
+
 
 @login_required
 def main(request):
@@ -19,6 +24,7 @@ def main(request):
     template = loader.get_template('main.html')
     return HttpResponse(template.render(context, request))
 
+@login_required
 def mails(request):
     campaigns = Campaign.objects.all()
     template = loader.get_template('campaigns.html')
@@ -27,6 +33,7 @@ def mails(request):
     }
     return HttpResponse(template.render(context, request))
 
+@login_required
 def details(request, slug):
     mycampaign = Campaign.objects.get(slug=slug)
     template = loader.get_template('details.html')
@@ -36,15 +43,40 @@ def details(request, slug):
     return HttpResponse(template.render(context, request))
 
 
-def authView(request):
-    if request.thod == "POST":
-        form = UserCreationForm(request.POST or None)
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            # log the user in
+            login(request, user)
+            return redirect('main')
     else:
         form = UserCreationForm()
-    context = {
-        'form' : form,
-    }
-    template = loader.get_template('signup.html')
-    return HttpResponse(template.render(context, request))
+        
+    return render(request, 'signup.html', {'form': form})
+
+# def login(request):
+#     if request.method == 'POST':
+#         form = AuthenticationForm(data=request.POST)
+#         if form.is_valid():
+#             # log the user in
+#             return redirect('main')
+#     else:
+#         form = AuthenticationForm()
+#     return render(request, 'login.html', {'form': form})
+
+
+def login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('main')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
