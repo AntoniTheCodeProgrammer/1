@@ -98,4 +98,5 @@ a:link, a:visited {
 .styled-table tbody tr.active-row {
   font-weight: bold;
   color: #375BDC;
+  background-color: #eff3ff;
 }
