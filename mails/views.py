@@ -11,7 +11,7 @@ from django.shortcuts import redirect
 
 
 @login_required
-def main(request):
+def mainView(request):
     campaign = Campaign.objects.all().order_by('-replied').values()[0]
     successprocent = []
     # for campaign in campaigns:
@@ -25,7 +25,7 @@ def main(request):
     return HttpResponse(template.render(context, request))
 
 @login_required
-def mails(request):
+def mailsView(request):
     campaigns = Campaign.objects.all()
     template = loader.get_template('campaigns.html')
     context = {
@@ -34,7 +34,7 @@ def mails(request):
     return HttpResponse(template.render(context, request))
 
 @login_required
-def details(request, slug):
+def detailsView(request, slug):
     mycampaign = Campaign.objects.get(slug=slug)
     template = loader.get_template('details.html')
     context = {
@@ -43,7 +43,7 @@ def details(request, slug):
     return HttpResponse(template.render(context, request))
 
 
-def signup(request):
+def signupView(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -57,18 +57,20 @@ def signup(request):
     return render(request, 'signup.html', {'form': form})
 
 
-def login(request):
+def loginView(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
-            print(form.errors)
+            
             if user is not None:
                 
                 login(request, user)
-                return redirect('')
+                return redirect('/')
+        else:
+            print(form.errors)
     else:
         form = AuthenticationForm()
 

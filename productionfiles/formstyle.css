@@ -1,0 +1,40 @@
+/* Stylowanie formularza */
+.formularz {
+    width: 300px; /* Szerokość formularza */
+    margin: 0 auto; /* Wyśrodkowanie formularza na stronie */
+    padding: 20px; /* Wewnętrzny margines formularza */
+    border: 2px solid #375BDC; /* Ramka formularza */
+    border-radius: 10px; /* Zaokrąglenie rogów */
+}
+  
+  /* Stylowanie etykiet (label) */
+.formularz label {
+    display: block; /* Wyświetlanie etykiety w nowej linii */
+    margin-bottom: 10px; /* Odstęp między etykietami */
+    font-weight: bold; /* Pogrubienie tekstu etykiety */
+}
+  
+  /* Stylowanie pól input */
+.formularz input {
+    width: 100%; /* Pełna szerokość pola input */
+    padding: 10px; /* Wewnętrzny margines pola input */
+    margin-bottom: 20px; /* Odstęp między polami input */
+    border: 1px solid #375BDC; /* Ramka pola input */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+}
+  
+  /* Stylowanie przycisku */
+.formularz button {
+    background-color: #375BDC; /* Kolor tła przycisku */
+    color: #ffffff; /* Kolor tekstu przycisku */
+    border: none; /* Brak ramki przycisku */
+    padding: 10px 20px; /* Wewnętrzny margines przycisku */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    cursor: pointer; /* Zmiana kursora na wskaźnik */
+}
+  
+  /* Dodatkowe style dla efektu hover (po najechaniu myszką) */
+.formularz button:hover {
+    background-color: #2C4FA1; /* Ciemniejszy kolor tła */
+}
+  

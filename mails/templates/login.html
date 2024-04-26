@@ -1,17 +1,22 @@
-{% comment %} {% extends "master.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'formstyle.css' %}">
+  <title>Login</title>
+</head>
+<body>
 
-
-{% block title %}
-  Login
-{% endblock %} {% endcomment %}
-
-
-{% comment %} {% block content %} {% endcomment %}
-<form method="POST">
+<form name="formularz" method="POST">
     {% csrf_token %}
     {{form}}
     <button type="submit">submit</button>
 </form>
 <a href="/signup">Rejestracja</a>
-  
-{% comment %} {% endblock %} {% endcomment %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
+
