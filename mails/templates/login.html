@@ -7,15 +7,13 @@
 </head>
 <body>
 
-<form name="formularz" method="POST">
+<form class="formularz" method="POST">
     {% csrf_token %}
     {{form}}
-    <button type="submit">submit</button>
+    <button type="submit">Submit</button>
+    <button onclick="window.location.href='/signup'">Rejestracja</button>
 </form>
-<a href="/signup">Rejestracja</a>
 
-{% block content %}
-{% endblock %}
 
 </body>
 </html>
