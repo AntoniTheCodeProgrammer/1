@@ -9,17 +9,33 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect
 
+import matplotlib.pyplot as plt
+import numpy as np
+import io
+import sys
+import matplotlib
+matplotlib.use('Agg')
+
+
 
 @login_required
 def mainView(request):
-    campaign = Campaign.objects.all().order_by('-replied').values()[0]
-    successprocent = []
-    # for campaign in campaigns:
-    #     successprocent.append((campaign[4]/campaign[6])*100)
+    campaigns = Campaign.objects.all().order_by('date').values()
+    bestCampaign = Campaign.objects.all().order_by('-replied').first()
 
-    # bestcampaign = successprocent.index(max(successprocent))
-    context = {
-        'mycampaign': campaign,
+    name = []
+    number = []
+    for campaign in campaigns:
+        name.append(campaign['name'])
+        number.append(campaign['replied'])
+
+    # Stwórz wykres słupkowy
+    plt.barh(name, number)
+    plt.savefig("mails/templates/wykres.png")
+
+    
+    context = { 
+        'mycampaign': bestCampaign,
     }
     template = loader.get_template('main.html')
     return HttpResponse(template.render(context, request))

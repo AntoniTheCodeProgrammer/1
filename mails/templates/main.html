@@ -9,11 +9,13 @@
 {% block content %}
 <div class="main">
   <h1>Mail Campaigns</h1>
-
+  {% comment %} <p>{{ mycampaign}}</p> {% endcomment %}
   {% comment %} <h3>Members</h3> {% endcomment %}
   <p>Najlepsza kampania to "{{ mycampaign.name }}" z {{ mycampaign.replied }} odpowiedziami.</p>
+  <img src="wykres.png" alt="Wykres słupkowy">
   <p>Check out all our <a href="campaigns/">campaigns</a></p>
 
+  
 </div>
   
 {% endblock %}
