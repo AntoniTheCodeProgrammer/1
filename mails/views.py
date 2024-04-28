@@ -30,8 +30,19 @@ def mainView(request):
         number.append(campaign['replied'])
 
     # Stwórz wykres słupkowy
-    plt.barh(name, number)
-    plt.savefig("mails/templates/wykres.png")
+    # plt.barh(name, number, color = "#375BDC")
+
+    bars = plt.barh(np.arange(len(name)), number, color="#375BDC")
+
+    for i, bar in enumerate(bars):
+        plt.text(bar.get_width()-1, bar.get_y() + bar.get_height()/2, name[i],
+                ha='right', va='center', color='white', fontsize=10)
+        bar.set_label(name[i])
+
+    plt.yticks(np.arange(len(name)), np.arange(1, len(name)+1))  
+    plt.legend(title="Nazwy", handles=bars[::-1])  
+
+    plt.savefig("mails/static/wykres.jpg")
 
     
     context = { 

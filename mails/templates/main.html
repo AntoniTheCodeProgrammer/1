@@ -1,5 +1,5 @@
 {% extends "master.html" %}
-
+{% load static %}
 
 {% block title %}
   Mail Campaigns
@@ -12,7 +12,7 @@
   {% comment %} <p>{{ mycampaign}}</p> {% endcomment %}
   {% comment %} <h3>Members</h3> {% endcomment %}
   <p>Najlepsza kampania to "{{ mycampaign.name }}" z {{ mycampaign.replied }} odpowiedziami.</p>
-  <img src="wykres.png" alt="Wykres słupkowy">
+  <img src="{% static 'wykres.jpg' %}" alt="Wykres słupkowy">
   <p>Check out all our <a href="campaigns/">campaigns</a></p>
 
   
