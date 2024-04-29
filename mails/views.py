@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect
 
+import math
+
 import matplotlib.pyplot as plt
 import numpy as np
 import io
@@ -35,10 +37,16 @@ def mainView(request):
     bars = plt.barh(np.arange(len(name)), number, color="#375BDC")
 
     for i, bar in enumerate(bars):
-        plt.text(bar.get_width()-1, bar.get_y() + bar.get_height()/2, name[i],
-                ha='right', va='center', color='white', fontsize=10)
+        if bar.get_width()*1.6 > len(name[i]):
+            plt.text(bar.get_width()-1, bar.get_y() + bar.get_height()/2, name[i], ha='right', va='center', color='white', fontsize=10)
+        plt.bar_label(bars, padding=3)
         bar.set_label(name[i])
-
+        
+    plt.xlabel('Ilość Odpowiedzi')
+    plt.ylabel('Kampanie')
+    plt.title('Zasięg Kampanii')
+    l = math.ceil(max(number) * 1.1)
+    plt.xlim(0, l)
     plt.yticks(np.arange(len(name)), np.arange(1, len(name)+1))  
     plt.legend(title="Nazwy", handles=bars[::-1])  
 
