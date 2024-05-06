@@ -8,9 +8,14 @@
 <body>
 
 <div class="topnav">
-  <a href="/">HOME</a> |
-  <a href="/campaigns">CAMPAIGNS</a> |
-  <a href="{% url 'logout' %}">LOGOUT</a>
+  <div>
+    <a href="/">HOME</a> |
+    <a href="/campaigns">CAMPAIGNS</a>
+  </div>
+  <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button class="but1" type="submit">Wyloguj</button>
+  </form>
 </div>
 
 {% block content %}
