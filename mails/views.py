@@ -25,7 +25,7 @@ def main_view(request):
     campaigns = Campaign.objects.all().order_by("date").values()
     best_campaign = Campaign.objects.all().order_by("-replied").first()
 
-    # TODO: w pythonie korzystamy z onelinerow, zamiast petli for tam gdzie sie da
+    # TODO: w pythonie korzystamy z onelinerow, zamiast petli for tam gdzie sie da✅
     numbers = [campaign['replied'] for campaign in campaigns]
     names = [campaign['name'] for campaign in campaigns]
 
@@ -92,11 +92,10 @@ def signup_view(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         # TODO: ladniejsze wyswietlanie errora jak cos nie tak z formularzem
-        # typu wiadomosc na czerowno co poszlo nie tak, bo tak to sie zlewa
-        # dodalem style ale najprawdopodobniej zeby one sie zaladowaly bedzie trzoeba pobierac na nowo cala aplikacje
+        # typu wiadomosc na czerowno co poszlo nie tak, bo tak to sie zlewa✅
+
         if form.is_valid():
             user = form.save()
-            # log the user in
             login(request, user)
             return redirect("main")
     else:
