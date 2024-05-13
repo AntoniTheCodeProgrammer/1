@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x%#s_va!x=(btci6psog_47^$&y2rqu0sv^vtq-bv2*#59c10k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_plotly_dash.apps.DjangoPlotlyDashConfig',
+    'channels',
     'mails'
 ]
 
@@ -134,3 +136,14 @@ LOGIN_URL = '/login'
 
 LOGIN_REDIRECT_URL = "main"
 LOGOUT_REDIRECT_URL = "main"
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('127.0.0.1', 6379),],
+        },
+    },
+}

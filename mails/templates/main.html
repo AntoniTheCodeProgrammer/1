@@ -1,6 +1,7 @@
 {% extends "master.html" %}
 {% load static %}
 
+
 {% block title %}
   Mail Campaigns
 {% endblock %}
@@ -12,7 +13,19 @@
   {% comment %} <p>{{ mycampaign}}</p> {% endcomment %}
   {% comment %} <h3>Members</h3> {% endcomment %}
   <p>Najlepsza kampania to "{{ mycampaign.name }}" z {{ mycampaign.replied }} odpowiedziami.</p>
-  <img src="{% static 'wykres.jpg' %}" alt="Wykres słupkowy">
+  
+  <div class="wykresy">
+    <div class="wykres">
+      {{ chart1|safe }}
+    </div>
+    <div class="wykres">
+      {{ chart2|safe }}
+    </div>
+  </div>
+  
+  
+
+  {% comment %} <img src="{% static 'wykres.jpg' %}" alt="Wykres słupkowy"> {% endcomment %}
   <p>Check out all our <a href="campaigns/">campaigns</a></p>
 
   

@@ -5,6 +5,12 @@ body {
   letter-spacing: 0.64px;
   color: #585d74;
 }
+.wykresy{
+  display: flex;
+}
+.wykres{
+  width: 50%;
+}
 .topnav {
   background-color:#375BDC;
   color:#ffffff;
